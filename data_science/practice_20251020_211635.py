@@ -1,4 +1,13 @@
-import pandas as pd
+# Session: Morning study session
+# Note: Awesome feature.
 
-df = pd.DataFrame({'A': [1, 2], 'B': [3, 4]})
-print(df.head())
+import pandas as pd
+import numpy as np
+
+# Source: Towards Data Science - Data Cleaning
+# Handling missing values
+df = pd.DataFrame({'A': [1, np.nan, 3], 'B': [4, 5, np.nan]})
+
+# Fill missing values
+df.fillna(value=0, inplace=True)
+print(df)

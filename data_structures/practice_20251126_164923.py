@@ -1,4 +1,16 @@
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
+# Session: Late night coding
+# Note: Finally understood this concept!
+
+# Source: GeeksforGeeks - Queue Data Structure
+class Queue:
+    def __init__(self):
+        self.items = []
+
+    def enqueue(self, item):
+        self.items.insert(0, item)
+
+    def dequeue(self):
+        return self.items.pop() if not self.is_empty() else None
+
+    def is_empty(self):
+        return len(self.items) == 0

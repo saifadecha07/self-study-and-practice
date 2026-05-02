@@ -1,6 +1,11 @@
-version: '3.8'
-services:
-  db:
-    image: postgres:13
-    environment:
-      POSTGRES_USER: user
+# Session: Late night coding
+# Note: W3Schools explanation is really clear.
+
+# Source: Docker Official Documentation
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 3000
+CMD ["npm", "start"]

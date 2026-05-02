@@ -1,6 +1,15 @@
-def bubble_sort(arr):
-    n = len(arr)
-    for i in range(n):
-        for j in range(0, n-i-1):
-            if arr[j] > arr[j+1]:
-                arr[j], arr[j+1] = arr[j+1], arr[j]
+# Session: Weekend practice
+# Note: Awesome feature.
+
+# Source: Grokking Algorithms Book
+def binary_search(arr, low, high, x):
+    if high >= low:
+        mid = (high + low) // 2
+        if arr[mid] == x:
+            return mid
+        elif arr[mid] > x:
+            return binary_search(arr, low, mid - 1, x)
+        else:
+            return binary_search(arr, mid + 1, high, x)
+    else:
+        return -1

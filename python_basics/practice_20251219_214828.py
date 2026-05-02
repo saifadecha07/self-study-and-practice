@@ -1,1 +1,14 @@
-print('Hello Python Data Science')
+# Session: Weekend practice
+# Note: Need to memorize this syntax.
+
+# Source: W3Schools Python Tutorial
+# Python Variables and Data Types
+x = 5
+y = 'John'
+print(type(x))
+print(type(y))
+
+# Casting
+x = str(3)    # x will be '3'
+y = int(3)    # y will be 3
+z = float(3)  # z will be 3.0

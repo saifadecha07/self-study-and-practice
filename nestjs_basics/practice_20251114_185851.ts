@@ -1,9 +1,20 @@
-import { Controller, Get } from '@nestjs/common';
+// Session: Morning study session
+// Note: Awesome feature.
 
-@Controller()
-export class AppController {
-  @Get()
-  getHello(): string {
-    return 'Hello NestJS!';
+import { Injectable } from '@nestjs/common';
+
+// Source: NestJS Official Documentation - Providers
+export interface Cat { name: string; age: number; breed: string; }
+
+@Injectable()
+export class CatsService {
+  private readonly cats: Cat[] = [];
+
+  create(cat: Cat) {
+    this.cats.push(cat);
+  }
+
+  findAll(): Cat[] {
+    return this.cats;
   }
 }

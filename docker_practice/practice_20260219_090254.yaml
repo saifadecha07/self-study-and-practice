@@ -1,6 +1,11 @@
-version: '3.8'
-services:
-  db:
-    image: postgres:13
-    environment:
-      POSTGRES_USER: user
+# Session: Lunch break learning
+# Note: Finally understood this concept!
+
+# Source: Docker Official Documentation
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+EXPOSE 3000
+CMD ["npm", "start"]

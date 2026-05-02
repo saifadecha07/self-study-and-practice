@@ -1,7 +1,17 @@
+# Session: Weekend practice
+# Note: Need to memorize this syntax.
+
 from fastapi import FastAPI
+from pydantic import BaseModel
+
+# Source: FastAPI Official Docs - Request Body
+class Item(BaseModel):
+    name: str
+    price: float
+    is_offer: bool = None
 
 app = FastAPI()
 
-@app.get('/')
-def read_root():
-    return {'status': 'ok'}
+@app.post('/items/')
+def create_item(item: Item):
+    return item

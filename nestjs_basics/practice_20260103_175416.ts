@@ -1,9 +1,18 @@
-import { Controller, Get } from '@nestjs/common';
+// Session: Reviewing docs before bed
+// Note: W3Schools explanation is really clear.
 
-@Controller()
-export class AppController {
+import { Controller, Get, Post, Body } from '@nestjs/common';
+
+// Source: NestJS Official Documentation - Controllers
+@Controller('cats')
+export class CatsController {
+  @Post()
+  create(@Body() createCatDto: any) {
+    return 'This action adds a new cat';
+  }
+
   @Get()
-  getHello(): string {
-    return 'Hello NestJS!';
+  findAll(): string {
+    return 'This action returns all cats';
   }
 }

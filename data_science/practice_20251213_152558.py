@@ -1,4 +1,13 @@
-import pandas as pd
+# Session: Morning study session
+# Note: W3Schools explanation is really clear.
 
-df = pd.DataFrame({'A': [1, 2], 'B': [3, 4]})
-print(df.head())
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Source: W3Schools Matplotlib Tutorial
+# Basic plotting
+xpoints = np.array([1, 8])
+ypoints = np.array([3, 10])
+
+plt.plot(xpoints, ypoints)
+plt.show()

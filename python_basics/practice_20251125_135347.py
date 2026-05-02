@@ -1,1 +1,11 @@
-print('Hello Python Data Science')
+# Session: Late night coding
+# Note: Need to memorize this syntax.
+
+# Source: W3Schools Python Tutorial
+# Python Lists
+thislist = ['apple', 'banana', 'cherry']
+print(thislist[1])
+
+# Change Item Value
+thislist[1] = 'blackcurrant'
+print(thislist)

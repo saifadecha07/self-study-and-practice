@@ -1,6 +1,10 @@
-version: '3.8'
-services:
-  db:
-    image: postgres:13
-    environment:
-      POSTGRES_USER: user
+# Session: Late night coding
+# Note: Need to memorize this syntax.
+
+# Source: FastAPI Docker Deployment Guide
+FROM python:3.9-slim
+WORKDIR /code
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]

@@ -1,6 +1,17 @@
+# Session: Weekend practice
+# Note: W3Schools explanation is really clear.
+
+# Source: Docker Compose Getting Started
 version: '3.8'
 services:
+  web:
+    build: .
+    ports:
+      - '8000:8000'
+    depends_on:
+      - db
   db:
     image: postgres:13
     environment:
-      POSTGRES_USER: user
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password

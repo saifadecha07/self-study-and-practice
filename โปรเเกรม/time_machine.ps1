@@ -32,6 +32,11 @@ while ($currentDate -le $endDate) {
         $topic = $topics | Get-Random
         
         $targetDir = $topic.dir
+        # Adjust path if run from root
+        if (-not (Test-Path $targetDir) -and (Test-Path "โปรเเกรม\$targetDir")) {
+            $targetDir = "โปรเเกรม\$targetDir"
+        }
+
         if (-not (Test-Path $targetDir)) {
             New-Item -ItemType Directory -Path $targetDir | Out-Null
         }

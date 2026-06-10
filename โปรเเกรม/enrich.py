@@ -57,9 +57,15 @@ dates = ['Morning study session', 'Late night coding', 'Weekend practice', 'Revi
 moods = ['Finally understood this concept!', 'Need to memorize this syntax.', 'W3Schools explanation is really clear.', 'This took a while to debug, but it works now.', 'Awesome feature.']
 
 for dir_name, options in snippets.items():
-    if not os.path.exists(dir_name):
+    # Adjusted to check both current dir and subfolder
+    actual_dir = dir_name
+    if not os.path.exists(actual_dir):
+        actual_dir = os.path.join("โปรเเกรม", dir_name)
+    
+    if not os.path.exists(actual_dir):
         continue
-    files = glob.glob(os.path.join(dir_name, '*.*'))
+        
+    files = glob.glob(os.path.join(actual_dir, '*.*'))
     for file_path in files:
         content = random.choice(options)
         comment_prefix = '--' if file_path.endswith('.sql') else ('//' if file_path.endswith('.ts') else '#')

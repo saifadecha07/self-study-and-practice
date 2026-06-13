@@ -21,3 +21,15 @@ match service :
     case None: print("Invalid input")
     case service : print(f"{service} ไม่อยู่ในบริการใน 1 2 None") #เอา service มาใช้ 
 
+#guard filter 
+#100 = สอบได้คะเเนนเต็ม 50-99ผ่าน     ****if+match
+score = int(input("enter score(0-100)"))
+print(f"{score}")
+match score:
+    case 100: 
+        print("full")
+    case score if 99>=score>=50: #เอา score มาใช้เเล้ว ใช้ IF statement 
+        print("ผ่านเกณฑ์")
+    case _:
+        print("ไม่ผ่าน")
+

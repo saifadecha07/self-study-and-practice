@@ -33,3 +33,13 @@ match score:
     case _:
         print("ไม่ผ่าน")
 
+#OR pattern ใช้ | pipe กำหนด case หลายๆ เคสเชื่อมเคสด้วย OR operator 
+data =input("enter ")   
+match data:
+    case "เด็กชาย" | "นาย":
+        print("เพศชาย")
+    case "เด็กหญิง" | "นาง" | "นางสาว":
+        print("เพศหญิง")
+    case _: 
+        print("ไม่รู้")
+

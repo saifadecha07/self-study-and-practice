@@ -43,3 +43,11 @@ match data:
     case _: 
         print("ไม่รู้")
 
+#sequence pattern เกี่ยวกับลำดับ list tuple
+data = []
+match data:
+    case []:
+        print("empty")
+    case [1,2]:
+        print("2")
+

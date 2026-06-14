@@ -51,3 +51,21 @@ match data:
     case [1,2]:
         print("2")
 
+#mapping pattern dictionary
+data ={"name":"kong","type":"member"}
+match data:
+    case {"type":"member"}:
+        print("ลดราคา")
+    case _:
+        print("No promotion")
+customers = [
+    {"name":"kong","type":"general"},
+    {"name":"sky","type":"member"}
+]
+id = int(input("enter ID"))
+print(f"{id} = {customers[id]["name"]}")
+match customers[id]:
+    case {"type":"member"}:
+        print("ลดราคา")
+    case _:
+        print("No promotion")

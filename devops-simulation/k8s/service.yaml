@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: agoda-demo-service
+spec:
+  selector:
+    app: agoda-demo
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+  type: LoadBalancer   # ใน cloud = external IP, local minikube ใช้ NodePort แทน
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: agoda-config
+data:
+  version: "1.0.0"
+  env: "production"

@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agoda-demo
+  namespace: default
+  labels:
+    app: agoda-demo
+spec:
+  replicas: 3          # 3 pods รัน parallel — ถ้า pod ตาย K8s restart อัตโนมัติ
+  selector:
+    matchLabels:
+      app: agoda-demo
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1       # deploy ใหม่ 1 pod ก่อน ก่อน kill old
+      maxUnavailable: 0 # ไม่ให้ downtime เลย
+  template:
+    metadata:
+      labels:
+        app: agoda-demo
+    spec:
+      containers:
+        - name: agoda-demo
+          image: agoda-demo:1.0.0
+          ports:
+            - containerPort: 5000
+          env:
+            - name: APP_ENV
+              value: "production"
+            - name: APP_VERSION
+              valueFrom:
+                configMapKeyRef:
+                  name: agoda-config
+                  key: version
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "100m"
+            limits:
+              memory: "128Mi"
+              cpu: "200m"
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 10
+            periodSeconds: 30
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 5
+            periodSeconds: 10

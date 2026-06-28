@@ -1,9 +1,12 @@
-public class Employee {
+public abstract class Employee {
     private static int count=0;
     private String id; //encapsulation a employee may be like this 
     private String name;
     private double salary;
     
+    public Employee(){
+
+    }
     public Employee(String name) { // the way we can create the object
         this.id = String.valueOf(++count);
         this.name = name;
@@ -36,4 +39,8 @@ public class Employee {
     public static void showNum(){
         System.out.println(count);
     }
+    public String toString(){
+        return name+" "+id;
+    }
+    public abstract void bonus();
 }
